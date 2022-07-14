@@ -1,0 +1,155 @@
+/* Universals */
+:root {
+    --primary: #3d69a8;
+    --secondary: #6387bb;
+    --white: #f9ffff;
+    --black: #090a0a;
+
+    --big-font: 40pt;
+    --medium-font: 20pt;
+    --small-font: 14pt;
+}
+
+body {
+    padding: 0%;
+    margin: 0%;
+    background-color: var(--white);
+}
+
+/* Images */
+
+.joja-logo {
+    position: static;
+    height: 100vh;
+}
+
+#background-left {
+    float: left;
+}
+
+#background-right {
+    float: right;
+}
+
+/* Headers */
+.header-container {
+    padding-top: 2vh;
+    text-align: center;
+    background-color: var(--secondary);
+    color: var(--white);
+}
+
+.header {
+    font-size: var(--big-font);
+    margin-bottom: 0%;
+}
+
+.sub-header {
+    font-size: var(--medium-font);
+    padding-bottom: 5vh;
+}
+
+.login-header {
+    font-size: var(--big-font);
+    margin-bottom: 2vh;
+}
+
+.form-header {
+    font-size: var(--medium-font);
+    color: var(--primary)
+}
+
+/* Containers */
+.login-container {
+    text-align: center;
+    margin-top: 5vh;
+    color: var(--primary);
+}
+
+.disclaimer-container {
+    background-color: var(--secondary);
+    color: var(--white);
+    height: 15vh;
+    margin-top: 15.5vh;
+    text-align: center;
+    padding-top: 5vh;
+}
+
+.main-container {
+    text-align: center;
+}
+
+
+
+/* Labels */
+.small-text {
+    font-size: var(--small-font);
+}
+
+.med-text {
+    font-size: var(--medium-font);
+}
+
+.big-label {
+    font-size: var(--medium-font);
+}
+
+/* Inputs */
+.big-input {
+    height: 28px;
+    width: 30vw;
+    margin: 2vh 0vw;
+    font-size: var(--medium-font);
+}
+
+.small-input {
+    font-size: var(--small-font);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Buttons */
+.login-button {
+    font-size: var(--medium-font);
+    padding: 0.5vh 1vw;
+    color: var(--primary);
+    box-shadow: 3px 3px 5px var(--primary);
+}
+
+.login-button:hover, .submit-button:hover {
+    cursor: pointer;
+    box-shadow: 1px 3px 5px var(--primary);
+}
+
+.submit-button {
+    font-size: var(--small-font);
+    box-shadow: 3px 3px 5px var(--primary);
+    color: var(--primary);
+}
+
+/* Links */
+.link {
+    font-size: var(--small-font);
+}
+
+.link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Misc. */
+.block {
+    display: block;
+    margin:auto;
+}
+
+.margin-small {
+    margin-top: 2vh;
+}
+
+.margin-large {
+    margin-top: 10vh;
+}
+
+.margin-radio {
+    margin-right: 5vw;
+}
