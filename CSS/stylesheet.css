@@ -59,6 +59,9 @@ body {
     color: var(--primary)
 }
 
+.header-link:hover {
+    cursor: pointer;
+}
 /* Containers */
 .login-container {
     text-align: center;
@@ -70,7 +73,7 @@ body {
     background-color: var(--secondary);
     color: var(--white);
     height: 15vh;
-    margin-top: 15.5vh;
+    margin-top: 24vh;
     text-align: center;
     padding-top: 5vh;
 }
@@ -97,7 +100,7 @@ body {
 /* Inputs */
 .big-input {
     height: 28px;
-    width: 30vw;
+    width: 20vw;
     margin: 2vh 0vw;
     font-size: var(--medium-font);
 }
@@ -150,6 +153,20 @@ body {
     margin-top: 10vh;
 }
 
+.margin-medium {
+    margin-top: 5vh;
+}
+
 .margin-radio {
     margin-right: 5vw;
+}
+
+/* Hidden */
+
+.hidden {
+    display: none;
+}
+
+.failed {
+    color: red;
 }

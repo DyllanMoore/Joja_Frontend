@@ -4,41 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/stylesheet.css" />
+    <link rel="stylesheet" href="/JoJa FE/CSS/stylesheet.css" />
     <title>Document</title>
 </head>
 <body>
-    <img id="background-left" class="joja-logo" src="/resources/jojamart_logo.jpg">
-    <img id="background-right" class="joja-logo" src="/resources/jojamart_logo.jpg">
+    <img id="background-left" class="joja-logo" src="/JoJa FE/resources/jojamart_logo.jpg">
+    <img id="background-right" class="joja-logo" src="/JoJa FE/resources/jojamart_logo.jpg">
     <div class="header-container">
-        <h1 class="header">JojaMart Employee Management System</h1>
+        <h1 class="header header-link" id="header-refresh">JojaMart Employee Management System</h1>
         <h2 class="sub-header">Join us. Thrive.</h2>
     </div>
     <div class="form-container">
-        <div class="main-container">
+
+        <!-- Main Choice Container -->
+        <div class="main-container" id="database-choices-container">
             <p class="small-text">This form can be used to access employee records, add/remove employees, and update employee information.</p>
             <form id="database-choices">
                 <label for="employee-form" class="small-text block">What would you like to do?</label>
-                <select name="employee-form" id="employee-form" class="small-input block margin-small">
+                <select name="employee-form" id="choice-form" class="small-input block margin-small">
                     <option value="blank"></option>
                     <option value="access-records">Access Employee Records</option>
                     <option value="add-employee">Add an Employee</option>
                     <option value="delete-employee">Delete an Employee</option>
                     <option value="update-employee">Update Employee Information</option>
                 </select>
-                <button type="submit" class="submit-button block margin-small">Submit</button>
+                <div class="failed small-text margin-small" id="make-selection-main-div">
+                </div>
+                <button type="button" class="submit-button block margin-small" id="access-button">Submit</button>
             </form>
         </div>
-        <div class="main-container" id="all-employees-container" hidden>
+
+        <!-- All Employee Info Form -->
+        <div class="main-container hidden" id="all-employees-container">
             <h3 class="form-header">All JojaMart Employees</h3>
             <div id="employee-info">
-                <p id="employee-name" class="small-text">Name:</p>
-                <p id="employee-title" class="small-text">Title:</p>
-                <p id="employee-salary" class="small-text">Salary:</p>
-                <p id="separation-line" class="small-text">---------------------------------------------------</p>
             </div>
         </div>
-        <div class="main-container" id="add-new-employee-container" hidden>
+
+        <!-- Add New Employee Form -->
+        <div class="main-container hidden" id="add-new-employee-container">
             <h3 class="form-header">Add New JojaMart Employee</h3>
             <form id="add-employee-form">
                 <label for="new-employee-name" class="small-text">Name:</label>
@@ -54,37 +58,20 @@
                 <br>
                 <label for="employee-salary" class="small-text margin-small">Salary:</label>
                 <input type="number" id="employee-salary" class="small-input margin-small">
-                <button type="submit" class="submit-button block margin-small">Submit</button>
+                <button type="button" class="submit-button block margin-small" id="add-employee-button">Submit</button>
+                <div class="blocked small-text margin-large" id="new-employee-added-container">
+
+                </div>
             </form>
         </div> 
-        <div class="main-container" id="remove-employee-container" hidden>
+
+        <!-- Remove Employee Form -->
+        <div class="main-container hidden" id="remove-employee-container">
             <h3 class="form-header">Remove a JojaMart Employee</h3>
             <div class="removal-precautions">
-                <p class="small-text">
-                    Before removing an employee from the JojaMart Employee Management System, please review the following instructions.
-                    You must acknowledge each statement before the employee can be removed from the JojaMart Employee Management System.
-                </p>
-                <form class="precautions-form">
-                    <input type="checkbox" id="precaution-one" class="margin-small">
-                    <label for="precaution-one" class="small-text margin-small">
-                        The employee has been told that they are being removed from the JojaMart Employee Management System. 
-                    </label>
-                    <br>
-                    <input type="checkbox" id="precaution-two" class="margin-small">
-                    <label for="precaution-two" class="small-text">
-                        The employee has been told that once they are removed they are no longer elligible for their JojaMart Benefits. 
-                    </label>
-                    <br>
-                    <input type="checkbox" id="precaution-three" class="margin-small">
-                    <label for="precaution-three" class="small-text">
-                        The employee has been told that if they wish to be enployed by JojaMart in the fututre, they must go through the whole interview process and training again.
-                    </label>
-                    <br>
-                    <input type="checkbox" id="precaution-four" class="margin-small">
-                    <label for="precaution-four" class="small-text">
-                        The employee has signed their NDA.
-                    </label>
-                    <p class="small-text margin-large">Reason for Removal:</p>
+                <label for="employee-to-delete" class="small-text margin-small">Employee to be Removed:</label>
+                <input type="text" id="employee-to-delete" class="small-input margin-small">
+                    <p class="small-text margin-small">Reason for Removal:</p>
                     <input type="radio" id="dismissed" name="removal-reason" value="dismissed" >
                     <label for="dismissed" class="small-text margin-radio">
                         Dismissed
@@ -97,23 +84,34 @@
                     <label for="layoffs" class="small-text">
                         Layoffs
                     </label>
-                    <button type="submit" class="submit-button block margin-small">Submit</button>
+                    <div class="failed small-text margin-small" id="make-selection-remove-div">
+                    </div>
+                    <button type="button" class="submit-button block margin-small" id="delete-employee-button">Submit</button>
                 </form>
+                <div id="deleted-employee-container" class="block margin-large small-text">
+                </div>
             </div>
         </div> 
-        <div class="main-container" id="update-employee-container" hidden>
+
+        <!-- Update Employee Choices Form -->
+        <div class="main-container hidden" id="update-employee-container">
             <h3 class="form-header">Update Employee</h3>
             <form class="choose-update">
                 <label for="update-list" class="small-text block ">What would you like to update?</label>
                 <select name="update-list" id="update-list" class="small-input block margin-small">
+                    <option value="blank"></option>
                     <option value="name">Name</option>
                     <option value="title">Title</option>
                     <option value="salary">Salary</option>
                 </select>
-                <button type="submit" class="submit-button block margin-small">Submit</button>
+                <div class="failed small-text margin-small" id="make-selection-update-div">
+                </div>
+                <button type="button" class="submit-button block margin-small" id="update-choices-button">Submit</button>
             </form>
         </div> 
-        <div class="main-container" id="update-employee-name-container" hidden>
+
+        <!-- Update Name Form -->
+        <div class="main-container hidden" id="update-employee-name-container">
             <h3 class="form-header">Update Employee's Name</h3>
             <form class="update-name-form">
                 <label for="old-name" class="small-text">Employee's Old Name:</label>
@@ -121,31 +119,47 @@
                 <br>
                 <label for="new-name" class="small-text margin-small">Employee's New Name:</label>
                 <input type="text" id="new-name" class="small-input margin-small">
-                <button type="submit" class="submit-button block margin-small">Submit</button>
+                <button type="button" class="submit-button block margin-small" id="update-name-button">Submit</button>
             </form>
+            <div id="name-updated-container" class="small-text margin-large">
+            </div>
         </div>
-        <div class="main-container" id="update-employee-title-container" hidden>
+
+        <!-- Update Title Form -->
+        <div class="main-container hidden" id="update-employee-title-container">
             <h3 class="form-header">Update Employee's Title</h3>
             <form class="update-title-form">
-                <label for="employee-name" class="small-text">Employee's Name:</label>
-                <input type="text" id="employee-name" class="small-input">
+                <label for="employee-name-title" class="small-text">Employee's Name:</label>
+                <input type="text" id="employee-name-title" class="small-input">
                 <br>
                 <label for="new-title" class="small-text margin-small">Employee's New Title:</label>
-                <input type="text" id="new-title" class="small-input margin-small">
-                <button type="submit" class="submit-button block margin-small">Submit</button>
+                <select type="text" id="new-title" class="small-input margin-small">
+                    <option value="1">Manager</option>
+                    <option value="2">Stocker</option>
+                    <option value="3">Cashier</option>
+                    <option value="4">Janitor</option>
+                </select>
+                <button type="button" class="submit-button block margin-small" id="update-title-button">Submit</button>
             </form>
+            <div id="title-updated-container" class="small-text margin-large">
+            </div>
         </div>
-        <div class="main-container" id="update-employee-salary-container" hidden>
+
+        <!-- Update Salary Form -->
+        <div class="main-container hidden" id="update-employee-salary-container">
             <h3 class="form-header">Update Employee's Salary</h3>
             <form class="update-salary-form">
-                <label for="employee-name" class="small-text">Employee's Name:</label>
-                <input type="text" id="employee-name" class="small-input">
+                <label for="employee-name-salary" class="small-text">Employee's Name:</label>
+                <input type="text" id="employee-name-salary" class="small-input">
                 <br>
                 <label for="new-salary" class="small-text margin-small">Employee's New Salary:</label>
                 <input type="text" id="new-salary" class="small-input margin-small">
-                <button type="submit" class="submit-button block margin-small">Submit</button>
+                <button type="button" class="submit-button block margin-small" id="update-salary-button">Submit</button>
+                <div id="salary-updated-container" class="margin-small small-text">
+                </div>
             </form>
         </div>
     </div>
+    <script src="/JoJa FE/JS/main.js"></script>
 </body>
 </html>
